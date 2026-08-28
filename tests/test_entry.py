@@ -1,56 +1,45 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from locators import Locators
+from constants import MAIN_URL, LOGIN_URL, REGISTER_URL, FORGOT_PASSWORD_URL
 
-def test_button_login_your_account_in_main_page():
-    driver = webdriver.Chrome()
-    driver.get("https://stellarburgers.education-services.ru/")
+class TestEntry:
 
-    driver.find_element(By.CSS_SELECTOR, ".button_button__33qZ0.button_button_type_primary__1O7Bx.button_button_size_large__G21Vg").click()
+    def test_button_login_your_account_in_main_page(self, driver):
+        driver.get(MAIN_URL)
 
-    WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//div[@class='Auth_login__3hAey']/h2[text()='Вход']")))
+        driver.find_element(*Locators.LOGIN_BUTTON_MANE_PAGE).click()
 
-    required_url = "https://stellarburgers.education-services.ru/login"
-    assert required_url == driver.current_url
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_TITLE))
 
-    driver.close()
+        assert LOGIN_URL == driver.current_url
 
-def test_button_personal_account_in_main_page():
-    driver = webdriver.Chrome()
-    driver.get("https://stellarburgers.education-services.ru/")
 
-    driver.find_element(By.XPATH, "//p[text()='Личный Кабинет']/parent::a").click()
+    def test_button_personal_account_in_main_page(self, driver):
+        driver.get(MAIN_URL)
 
-    WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//div[@class='Auth_login__3hAey']/h2[text()='Вход']")))
+        driver.find_element(*Locators.PERSONAL_ACCOUNT_BUTTON).click()
 
-    required_url = "https://stellarburgers.education-services.ru/login"
-    assert required_url == driver.current_url
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_TITLE))
 
-    driver.close()
+        assert LOGIN_URL == driver.current_url
 
-def test_login_button_in_registration_page():
-    driver = webdriver.Chrome()
-    driver.get("https://stellarburgers.education-services.ru/register")
 
-    driver.find_element(By.XPATH, "//p[text()='Уже зарегистрированы?']/a").click()
+    def test_login_button_in_registration_page(self, driver):
+        driver.get(REGISTER_URL)
 
-    WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//div[@class='Auth_login__3hAey']/h2[text()='Вход']")))
+        driver.find_element(*Locators.LOGIN_BUTTON_REG_PAGE).click()
 
-    required_url = "https://stellarburgers.education-services.ru/login"
-    assert required_url == driver.current_url
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_TITLE))
 
-    driver.close()
+        assert LOGIN_URL == driver.current_url
 
-def test_login_button_in_forgot_password_page():
-    driver = webdriver.Chrome()
-    driver.get("https://stellarburgers.education-services.ru/forgot-password")
 
-    driver.find_element(By.XPATH, "//p[text()='Вспомнили пароль?']/a").click()
+    def test_login_button_in_forgot_password_page(self, driver):
+        driver.get(FORGOT_PASSWORD_URL)
 
-    WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.XPATH, "//div[@class='Auth_login__3hAey']/h2[text()='Вход']")))
+        driver.find_element(*Locators.LOGIN_BUTTON_FORGOT_PAGE).click()
 
-    required_url = "https://stellarburgers.education-services.ru/login"
-    assert required_url == driver.current_url
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_TITLE))
 
-    driver.close()
+        assert LOGIN_URL == driver.current_url
