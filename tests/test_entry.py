@@ -8,7 +8,7 @@ class TestEntry:
     def test_button_login_your_account_in_main_page(self, driver):
         driver.get(MAIN_URL)
 
-        driver.find_element(*Locators.LOGIN_BUTTON_MANE_PAGE).click()
+        driver.find_element(*Locators.LOGIN_BUTTON_MAIN_PAGE).click()
 
         WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located(Locators.LOGIN_TITLE))
 

@@ -1,5 +1,3 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import Locators
@@ -26,7 +24,7 @@ class TestPersonalAccount:
 
         driver_log.find_element(*Locators.DESIGNER_BUTTON).click()
 
-        WebDriverWait(driver_log, 10).until(expected_conditions.visibility_of_element_located(Locators.MANE_PAGE_TITLE))
+        WebDriverWait(driver_log, 10).until(expected_conditions.visibility_of_element_located(Locators.MAIN_PAGE_TITLE))
 
         assert MAIN_URL == driver_log.current_url
 
@@ -38,7 +36,7 @@ class TestPersonalAccount:
         
         driver_log.find_element(*Locators.LOGO).click()
 
-        WebDriverWait(driver_log, 10).until(expected_conditions.visibility_of_element_located(Locators.MANE_PAGE_TITLE))
+        WebDriverWait(driver_log, 10).until(expected_conditions.visibility_of_element_located(Locators.MAIN_PAGE_TITLE))
 
         assert MAIN_URL == driver_log.current_url
 

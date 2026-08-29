@@ -7,9 +7,11 @@ class Locators:
 
     REGISTER_BUTTON = (By.XPATH, "//main//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
 
+    LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
+
     PERSONAL_ACCOUNT_BUTTON = (By.XPATH, "//p[text()='Личный Кабинет']/parent::a")
 
-    LOGIN_BUTTON_MANE_PAGE = (By.XPATH, "//button[text()='Войти в аккаунт']")
+    LOGIN_BUTTON_MAIN_PAGE = (By.XPATH, "//button[text()='Войти в аккаунт']")
     LOGIN_BUTTON_REG_PAGE = (By.XPATH, "//p[text()='Уже зарегистрированы?']/a")
     LOGIN_BUTTON_FORGOT_PAGE = (By.XPATH, "//p[text()='Вспомнили пароль?']/a")
 
@@ -28,7 +30,7 @@ class Locators:
     ACTIVE_TOPPINGS_BUTTON = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Начинки']")
 
     LOGIN_TITLE = (By.XPATH, "//div[@class='Auth_login__3hAey']/h2[text()='Вход']")
-    MANE_PAGE_TITLE = (By.XPATH, "//h1[text()='Соберите бургер']")
+    MAIN_PAGE_TITLE = (By.XPATH, "//h1[text()='Соберите бургер']")
 
     TOPPINGS_TITLE = (By.XPATH, "//h2[text()='Начинки']")
     
